@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ListaCursos from './components/ListaCursos';
+import './App.css'; // Importa los estilos aquí
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        {/* Aquí podría ir tu menú y otros elementos del header */}
+        <h1>Cursos de Formación</h1>
       </header>
+      <main>
+        <ListaCursos />
+      </main>
+      <footer>
+        {/* Información del footer */}
+        <p>© 2024 Cursos Online</p>
+      </footer>
     </div>
   );
 }
