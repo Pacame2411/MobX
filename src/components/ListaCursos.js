@@ -1,26 +1,27 @@
 // src/components/ListaCursos.js
 import React from 'react';
-import { connect } from 'react-redux';
+import { observer } from 'mobx-react';
+import coursesStore from '../stores/CoursesStore';
 
-const ListaCursos = ({ cursos }) => {
+const ListaCursos = observer(() => {
+  // Asegúrate de que realmente estás accediendo al estado actualizado de cursos
+  const { cursos } = coursesStore;
+
+  // Verifica que cursos contenga los datos esperados con un console.log
+  console.log(cursos);
+
   return (
-    <div>
-      <h2>Cursos Disponibles</h2>
-      <ul>
-        {cursos.map(curso => (
-          <li key={curso.id}>
-            <h3>{curso.nombre}</h3>
-            <p>{curso.descripcion}</p>
-            <p>Duración: {curso.duracion}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {cursos.map(curso => (
+        <li key={curso.id}>
+          <h3>{curso.nombre}</h3>
+          <p>{curso.descripcion}</p>
+          <p>Duración: {curso.duracion}</p>
+          <button onClick={() => coursesStore.eliminarCurso(curso.id)}>Eliminar</button>
+        </li>
+      ))}
+    </ul>
   );
-};
-
-const mapStateToProps = (state) => ({
-  cursos: state.cursos
 });
 
-export default connect(mapStateToProps)(ListaCursos);
+export default ListaCursos;

@@ -1,20 +1,20 @@
+// src/App.js
 import React from 'react';
 import ListaCursos from './components/ListaCursos';
-import './App.css'; // Importa los estilos aquí
-
+import AñadirCurso from './components/AñadirCurso';
+import './App.css';
 
 function App() {
   return (
     <div>
       <header>
-        {/* Aquí podría ir tu menú y otros elementos del header */}
         <h1>Cursos de Formación</h1>
       </header>
       <main>
-        <ListaCursos />
+        <ListaCursos /> {/* Muestra la lista de cursos existentes */}
+        <AñadirCurso /> {/* Añade nuevos cursos al final */}
       </main>
       <footer>
-        {/* Información del footer */}
         <p>© 2024 Cursos Online</p>
       </footer>
     </div>
